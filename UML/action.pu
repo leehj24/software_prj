@@ -1,0 +1,22 @@
+@startuml
+start
+
+if ( 사용자 정보 입력 )
+
+
+if (사용자 정보 확인) 
+: 저장된 스테이지;
+ if (stage 1)
+ else if (stage 2) 
+:이야기 전개, 좀비전투, 체력 회복;
+ else if (stage 3)
+ else if (stage 4)
+
+if (저장된 이스터 에그) then (yes)
+: 범인 관련된 힌트;
+
+
+stop 
+
+
+@enduml
