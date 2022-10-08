@@ -8,8 +8,9 @@ rectangle surver {
  usecase "게임시작" as uc4
  usecase "개인기록"as uc5
  usecase "게임중지" as ac1
- usecase "이스터에그" as ac2
- usecase "게임 스테이지" as ac3
+ usecase "게임종료" as ac2
+ usecase "이스터에그" as ac3
+ usecase "게임 스테이지" as ac4
 }
 
 fc --> uc1
@@ -18,7 +19,8 @@ fc --> uc3
 fc --> uc4
 fc --> uc5
 uc4 --> ac1
-uc5 --> ac2
+ac1 --> ac2
 uc5 --> ac3
+uc5 --> ac4
 
 @enduml
