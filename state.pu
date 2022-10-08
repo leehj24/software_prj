@@ -1,0 +1,27 @@
+@startuml
+state user : 회원가입
+state user1: 회원정보
+game : 게임 시작
+game1 : 게임 중지
+data : 이스터에그
+
+user --> user1
+user --> game
+game --> stage
+game --> game1
+user1 --> stage
+user1 --> data
+game --> event
+event --> damage
+state stage : stage1
+state stage : stage2
+state stage : stage3
+
+state event: 퀴즈 
+state event: 전투
+state event: 대화
+
+state damage : 체력
+state damage : 공격
+
+@enduml
