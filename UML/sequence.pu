@@ -1,0 +1,43 @@
+@startuml
+participant User
+
+User --> Server : 회원가입
+activate Server
+
+Server --> DB : 회원정보 저장
+activate DB
+
+Server --> User : 회원가입 결과
+deactivate User
+
+User --> Server : 로그인
+activate Server
+
+Server --> DB : 회원정보 확인
+activate DB
+
+DB --> Server : 결과
+deactivate DB
+
+Server --> DB : 로그인 결과
+activate DB
+
+User --> Server : 게임 시작
+activate Server
+
+Server --> DB : Stage 저장
+activate DB
+
+DB --> Server : 결과
+deactivate DB
+
+Server --> DB : 이스터에그 저장
+activate DB
+
+DB --> Server : 결과
+deactivate DB
+
+Server --> DB : 게임 결과
+activate DB
+
+@enduml
