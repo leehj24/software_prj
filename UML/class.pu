@@ -1,0 +1,135 @@
+@startuml
+class GameMain {
+    +{method} 시작()
+    +{method} 불러오기()
+    +{method} 설정()
+    +{method} 끝내기()
+}
+
+class Setting {
+    -{field} 음악_볼륨
+    -{field} 효과음_볼륨
+    -{field} 키_설정
+    +{method} 음악_볼륨_설정()
+    +{method} 효과음_볼륨_설정()
+    +{method} 키_설정()
+}
+
+class Character {
+    -{field} 이름
+    -{field} 체력
+    -{field} 상태이상
+    -{field} 위치
+    +{method} 이동()
+    +{method} 공격()
+    +{method} 상호작용()
+}
+
+class Inventory {
+    +{method} 아이템_추가()
+    +{method} 아이템_사용()
+    +{method} 아이템_삭제()
+}
+
+Character -- Inventory
+
+class NPC {
+    -{field} 이름
+    -{field} 대사
+    +{method} 대화()
+}
+
+class Item<<abstract>> {
+    #{field} 타입
+    #{field} 이름
+}
+
+class Hint {
+    -{field} 이름
+    -{field} 내용
+    +{method} 상호작용()
+}
+
+class HealthItem {
+    -{field} 내용
+    -{field} 회복량
+    +{method} 상호작용()
+}
+
+class Weapon {
+    -{field} 공격력
+    +{method} 상호작용()
+}
+
+class Quiz {
+    -{field} 내용
+    -{Field} 정답
+    +{method} 상호작용()
+}
+
+EasterEgg --|> Item
+HealthItem --|> Item
+Weapon --|> Item
+Quiz --|> Item
+
+class Map {
+    -{field} 맵_크기
+    -{field} 음악
+    +{method} 음악재생()
+    +{method} 음악종료()
+}
+
+class Object {
+    -{field} 이름
+    -{field} 내용
+    +{method} 상호작용()
+}
+
+class Monster {
+    -{field} 이름
+    -{field} 체력
+    -{field} 공격력
+    -{field} 방어력
+    -{field} 타입
+    -{field} 레벨
+    -{field} 상태이상
+    +{method} 이동()
+    +{method} 공격()
+    +{method} 상호작용()
+}
+
+class Login {
+    -{field} 아이디
+    -{field} 비밀번호
+    +{method} 로그인
+}
+
+class EasterEgg {
+    +{method} 상호작용()
+}
+
+class InGameUI {
+    -{static} {field} 데이터
+    -{field} 캐릭터_상태
+    -{method} 데이터_저장()
+}
+
+note left of Map
+Stage1, Stage2, Stage3
+까지 존재.
+end note
+
+Monster -- "0..*" Hint
+
+Hint "1..*" -- "0..*" Quiz
+Map "1..*" -- "0..*" Object
+Map "1..*" -- "0..*" Monster
+Map "1..*" -- Character
+Map "1..*" -- "0..*" NPC
+Map "1..*" -- "0..*" Hint
+Map "1..*" -- "0..*" HealthItem
+Map "1..*" -- "0..*" Weapon
+Map "1..*" -- "0..*" Quiz
+GameMain --> Setting
+GameMain -- Login
+@enduml
