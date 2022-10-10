@@ -13,9 +13,13 @@ user1 --> stage
 user1 --> data
 game --> event
 event --> damage
+damage --> death
+death --> game
+
 state stage : stage1
 state stage : stage2
 state stage : stage3
+state stage : stage4
 
 state event: 퀴즈 
 state event: 전투
@@ -23,5 +27,7 @@ state event: 대화
 
 state damage : 체력
 state damage : 공격
+
+state death : 사망
 
 @enduml
