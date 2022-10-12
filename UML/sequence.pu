@@ -1,43 +1,34 @@
 @startuml
 participant User
 
-User --> Server : 회원가입
-activate Server
+User --> Result : 캐릭터 불러오기
+activate Result
 
-Server --> DB : 회원정보 저장
-activate DB
+Result --> Information : 캐릭터 확인
+activate Information
 
-Server --> User : 회원가입 결과
+Result --> User : 캐릭터 생성
 deactivate User
 
-User --> Server : 로그인
-activate Server
+Result --> Information :  결과
+activate Information
 
-Server --> DB : 회원정보 확인
-activate DB
+User --> Result : 게임 시작
+activate Result
 
-DB --> Server : 결과
-deactivate DB
+Result --> Information : Stage 저장
+activate Information
 
-Server --> DB : 로그인 결과
-activate DB
+Information --> Result : 결과
+deactivate Information
 
-User --> Server : 게임 시작
-activate Server
+Result --> Information : 이스터에그 저장
+activate Information
 
-Server --> DB : Stage 저장
-activate DB
+Information --> Result : 결과
+deactivate Information
 
-DB --> Server : 결과
-deactivate DB
-
-Server --> DB : 이스터에그 저장
-activate DB
-
-DB --> Server : 결과
-deactivate DB
-
-Server --> DB : 게임 결과
-activate DB
+Result --> User : 게임 결과
+deactivate User
 
 @enduml

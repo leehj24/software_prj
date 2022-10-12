@@ -1,10 +1,8 @@
 @startuml
 left to right direction 
 actor "사용자" as fc
-rectangle surver {
- usecase "회원가입" as uc1
- usecase "로그인" as uc2
- usecase "로그아웃" as uc3
+rectangle game {
+ usecase "캐릭터생성" as uc1
  usecase "게임시작" as uc4
  usecase "개인기록"as uc5
  usecase "게임중지" as ac1
@@ -14,9 +12,7 @@ rectangle surver {
 }
 
 fc --> uc1
-fc --> uc2
-fc --> uc3
-fc --> uc4
+uc1 --> uc4
 fc --> uc5
 uc4 --> ac1
 ac1 --> ac2
