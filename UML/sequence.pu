@@ -1,34 +1,34 @@
 @startuml
 participant User
 
-User --> Result : 캐릭터 불러오기
-activate Result
+User --> System : 캐릭터 불러오기
+activate System
 
-Result --> Information : 캐릭터 확인
+System --> Information : 캐릭터 확인
 activate Information
 
-Result --> User : 캐릭터 생성
+System --> User : 캐릭터 생성
 deactivate User
 
-Result --> Information :  결과
+System --> Information :  결과
 activate Information
 
-User --> Result : 게임 시작
-activate Result
+User --> System : 게임 시작
+activate System
 
-Result --> Information : Stage 저장
+System --> Information : Stage 저장
 activate Information
 
-Information --> Result : 결과
+Information --> System : 결과
 deactivate Information
 
-Result --> Information : 이스터에그 저장
+System --> Information : 이스터에그 저장
 activate Information
 
-Information --> Result : 결과
+Information --> System : 결과
 deactivate Information
 
-Result --> User : 게임 결과
+System --> User : 게임 결과
 deactivate User
 
 @enduml
